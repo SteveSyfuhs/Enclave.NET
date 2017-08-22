@@ -1,0 +1,17 @@
+﻿{
+  "StartupTransformType": "sdfdsfsdf",
+  "Server": {
+    "Port": "44320",
+    "ServerCertificate": {
+      "StoreName": "My",
+      "StoreLocation": "LocalMachine",
+      "Thumbprint": "84ee508fb0e1cf7c0075e20a431b6166cffc572f"
+    },
+    "ClientCertificates": [
+      {
+        "Thumbprint": "d0d71f4749b64efe07dbec1ff2f79f67c08b911e",
+        "VerifyChain": false
+      }
+    ]
+  }
+}
