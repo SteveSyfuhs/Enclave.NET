@@ -2,6 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Debug>true</Debug>
+    <Authors>Steve Syfuhs</Authors>
+    <Company>Steve Syfuhs</Company>
+    <Description>A Secure-ish Crypto Execution Module.</Description>
+    <Copyright>Copyright 2017</Copyright>
+    <PackageLicenseUrl>https://github.com/SteveSyfuhs/Enclave.NET/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/SteveSyfuhs/Enclave.NET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SteveSyfuhs/Enclave.NET</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageTags>cryptography security</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

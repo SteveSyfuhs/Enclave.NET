@@ -19,12 +19,19 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Enclave.NET.Http
 {
-    public static class WebServiceHost
+    public static class EnclaveServiceHost
     {
-        public static IWebHost BuildWebHost(string[] args)
+        public static IWebHost BuildWebHost<T>(string[] args)
+            where T : class, new()
+        {
+            return CreateBuilder<T>(args).Build();
+        }
+
+        public static IWebHostBuilder CreateBuilder<T>(string[] args)
+            where T : class, new()
         {
             return WebHost.CreateDefaultBuilder(args)
-                          .UseStartup<ServiceStartup>()
+                          .UseStartup<T>()
                           .UseKestrel(options =>
                           {
                               var server = ServiceStartup.Configuration.GetSection("Server").Get<Server>();
@@ -41,8 +48,12 @@ namespace Enclave.NET.Http
                                       ClientCertificateValidation = (a, b, c) => CertificateHandler.ValidateCertificate(a, b, c, server.ClientCertificates)
                                   });
                               });
-                          })
-                          .Build();
+                          });
+        }
+
+        public static IWebHost BuildWebHost(string[] args)
+        {
+            return BuildWebHost<ServiceStartup>(args);
         }
 
         private static X509Certificate2 FindServerCertificate(Server server)

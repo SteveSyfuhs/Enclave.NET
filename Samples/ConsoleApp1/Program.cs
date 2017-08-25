@@ -21,7 +21,12 @@ namespace ConsoleApp1
 
         private static async Task MainAsync(string[] args)
         {
-            var client = new EnclaveClient(FindTestCertificate(), pinnedCertificates: new[] { new Certificate { Thumbprint = "84ee508fb0e1cf7c0075e20a431b6166cffc572f" } });
+            var client = new EnclaveClient(
+                FindTestCertificate(), 
+                pinnedCertificates: new[] {
+                    new Certificate { Thumbprint = "84ee508fb0e1cf7c0075e20a431b6166cffc572f" }
+                }
+            );
 
             var key = await client.GenerateKey("rsa");
 

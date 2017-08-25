@@ -10,7 +10,7 @@ namespace Enclave.ServiceHost
         {
             Console.WriteLine("Hello World!");
 
-            WebServiceHost.BuildWebHost(args).Run();
+            EnclaveServiceHost.BuildWebHost(args).Run();
         }
     }
 }
