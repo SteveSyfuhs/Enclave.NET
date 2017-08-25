@@ -105,8 +105,6 @@ namespace Enclave.NET.Http
                 .AddJsonFormatters()
                 .AddAuthorization();
 
-                ExternalTransform(services);
-
                 services.AddScoped<ICryptoProcessor, InMemoryCryptoProcessor>();
                 services.AddScoped<ICryptoProcessor, InMemoryCryptoProcessor>();
                 services.AddScoped<IKeyStorageService, InMemoryStorageService>();
@@ -126,6 +124,8 @@ namespace Enclave.NET.Http
                     CertificateAuthenticationOptions.Scheme,
                     c => { }
                 );
+
+                ExternalTransform(services);
             }
 
             private void ExternalTransform(IServiceCollection services)
