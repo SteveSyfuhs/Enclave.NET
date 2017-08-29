@@ -1,0 +1,22 @@
+﻿{
+  "StartupTransformType": "EnclaveAzureKeyVaultServiceHostSample.StartupTransformer, EnclaveAzureKeyVaultServiceHostSample",
+  "Server": {
+    "Port": "44320",
+    "ServerCertificate": {
+      "StoreName": "My",
+      "StoreLocation": "LocalMachine",
+      "Thumbprint": "84ee508fb0e1cf7c0075e20a431b6166cffc572f"
+    },
+    "ClientCertificates": [
+      {
+        "Thumbprint": "8425b8429c2f2e0363940f2e827caa1ea3769088",
+        "VerifyChain": false
+      }
+    ]
+  },
+  "KeyVault": {
+    "ClientId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "ClientSecret": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "Vault": "https://enclave.vault.azure.net/"
+  }
+}
