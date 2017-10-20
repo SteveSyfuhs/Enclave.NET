@@ -55,24 +55,26 @@ namespace EnclaveAzureKeyVaultServiceHostSample
 
         public async Task<IEnclaveKey> GetKey(IKeyIdentifier id)
         {
-            var client = KeyVault.CreateClient();
+            using (var client = KeyVault.CreateClient())
+            {
+                var keyId = Encoding.UTF8.GetString(Convert.FromBase64String(id.KeyId));
 
-            var keyId = Encoding.UTF8.GetString(Convert.FromBase64String(id.KeyId));
+                var key = await client.GetKeyAsync(keyId);
 
-            var key = await client.GetKeyAsync(keyId);
-
-            return new KeyVaultKey(key);
+                return new KeyVaultKey(key);
+            }
         }
 
         public async Task<IQueryable<IKeyIdentifier>> ListKeys()
         {
-            var client = KeyVault.CreateClient();
+            using (var client = KeyVault.CreateClient())
+            {
+                var config = KeyVault.ServiceConfiguration;
 
-            var config = KeyVault.ServiceConfiguration;
+                var keys = await client.GetKeysAsync(config.Vault);
 
-            var keys = await client.GetKeysAsync(config.Vault);
-
-            return keys.Select(k => new KeyVaultKeyIdentifier(k.Identifier.Identifier)).AsQueryable();
+                return keys.Select(k => new KeyVaultKeyIdentifier(k.Identifier.Identifier)).AsQueryable();
+            }
         }
     }
 }
