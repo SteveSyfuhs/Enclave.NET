@@ -58,13 +58,56 @@ namespace EnclaveAzureKeyVaultServiceHostSample
 
                 var result = await client.SignAsync(kvKey.Kid, JsonWebKeySignatureAlgorithm.RS256, hashed);
 
-                return Convert.ToBase64String(result.Result);
+                var signed = new SignaturePayload
+                {
+                    Val = value,
+                    Dig = hashed,
+                    Kid = result.Kid,
+                    Sig = result.Result,
+                };
+
+                return Convert.ToBase64String(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(signed)));
             }
         }
 
-        public Task<bool> Validate(IEnclaveKey key, string value)
+        public async Task<bool> Validate(IEnclaveKey key, string value)
         {
-            throw new NotImplementedException();
+            using (var client = KeyVault.CreateClient())
+            {
+                var signed = JsonConvert.DeserializeObject<SignaturePayload>(
+                        Encoding.UTF8.GetString(Convert.FromBase64String(value)));
+
+                var kvKey = key.RetrieveKey<JsonWebKey>();
+
+                return await client.VerifyAsync(kvKey.Kid, JsonWebKeySignatureAlgorithm.RS256,
+                        digest: signed.Dig, signature: signed.Sig);
+            }
+        }
+
+        /// <summary>
+        /// Holds a signature payload, which includes enough
+        /// elements to be able to verify the signature.
+        public class SignaturePayload
+        {
+            /// <summary>
+            /// The original value being signed.
+            /// </summary>
+            public object Val { get; set; }
+
+            /// <summary>
+            /// Digest of the JSON-serialized form of the value.
+            /// </summary>
+            public byte[] Dig { get; set; }
+
+            /// <summary>
+            /// The ID of the key used to sign.
+            /// </summary>
+            public string Kid { get; set; }
+
+            /// <summary>
+            /// The actual signature value.
+            /// </summary>
+            public byte[] Sig { get; set; }
         }
     }
 }
