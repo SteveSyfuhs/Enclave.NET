@@ -286,3 +286,9 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+## General-purpose folder to ignore everywhere
+_IGNORE
+
+## Ignore local config settings
+settings.local.json

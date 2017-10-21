@@ -5,12 +5,14 @@
     "ServerCertificate": {
       "StoreName": "My",
       "StoreLocation": "LocalMachine",
-      "Thumbprint": "84ee508fb0e1cf7c0075e20a431b6166cffc572f"
+
+      "Thumbprint": "OVERRIDE-THIS-VALUE-IN-settings.local.json"
     },
     "ClientCertificates": [
       {
-        "Thumbprint": "d0d71f4749b64efe07dbec1ff2f79f67c08b911e",
-        "VerifyChain": false
+        "VerifyChain": false,
+
+        "Thumbprint": "OVERRIDE-THIS-VALUE-IN-settings.local.json"
       }
     ]
   }
