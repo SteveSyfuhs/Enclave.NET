@@ -16,7 +16,7 @@ namespace Enclave.NET
 {
     public class EnclaveClient : IEnclaveService
     {
-        private const int DefaultPort = 44320;
+        public const int DefaultPort = 44320;
 
         private readonly HttpClient client;
 

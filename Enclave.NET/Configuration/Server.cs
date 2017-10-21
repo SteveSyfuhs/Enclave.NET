@@ -6,7 +6,7 @@ namespace Enclave.NET.Configuration
 {
     public class Server
     {
-        public int Port { get; set; }
+        public int Port { get; set; } = EnclaveClient.DefaultPort;
 
         public ServerCertificate ServerCertificate { get; set; }
 

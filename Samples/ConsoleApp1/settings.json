@@ -1,17 +1,10 @@
 ﻿{
-  "StartupTransformType": "",
   "Server": {
-    "Port": "44320",
     "ServerCertificate": {
-      "StoreName": "My",
-      "StoreLocation": "LocalMachine",
-
       "Thumbprint": "OVERRIDE-THIS-VALUE-IN-settings.local.json"
     },
     "ClientCertificates": [
       {
-        "VerifyChain": false,
-
         "Thumbprint": "OVERRIDE-THIS-VALUE-IN-settings.local.json"
       }
     ]

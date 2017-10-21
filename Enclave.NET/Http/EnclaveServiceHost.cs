@@ -81,10 +81,15 @@ namespace Enclave.NET.Http
 
         private class ServiceStartup
         {
-            public static IConfigurationRoot Configuration { get; } = new ConfigurationBuilder()
-                                                                           .SetBasePath(Directory.GetCurrentDirectory())
-                                                                           .AddJsonFile("settings.json")
-                                                                           .AddEnvironmentVariables().Build();
+            private static IConfigurationRoot _Configuration;
+
+            public static IConfigurationRoot Configuration => _Configuration ??
+                    (_Configuration = new ConfigurationBuilder()
+                            .SetBasePath(Directory.GetCurrentDirectory())
+                            .AddJsonFile("settings.json")
+                            .AddJsonFile("settings.local.json", optional: true)
+                            .AddEnvironmentVariables().Build());
+
             public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
             {
                 app.UseMvc();
