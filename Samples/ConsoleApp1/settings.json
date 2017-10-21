@@ -1,0 +1,12 @@
+﻿{
+  "Server": {
+    "ServerCertificate": {
+      "Thumbprint": "OVERRIDE-THIS-VALUE-IN-settings.local.json"
+    },
+    "ClientCertificates": [
+      {
+        "Thumbprint": "OVERRIDE-THIS-VALUE-IN-settings.local.json"
+      }
+    ]
+  }
+}
