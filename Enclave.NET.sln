@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.8
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29021.104
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enclave.NET", "Enclave.NET\Enclave.NET.csproj", "{27D0B92B-D70B-43AB-AC53-C6EFD41BEE53}"
 EndProject
@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enclave.ServiceHost", "Encl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{39D00364-9510-457A-98CC-B56515E0E74D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "Samples\ConsoleApp1\ConsoleApp1.csproj", "{C113C11F-91F0-4E56-824F-70E37B3BC7AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "Samples\ConsoleApp1\ConsoleApp1.csproj", "{C113C11F-91F0-4E56-824F-70E37B3BC7AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnclaveAzureKeyVaultServiceHostSample", "Samples\AzureKeyVaultSample\EnclaveAzureKeyVaultServiceHostSample\EnclaveAzureKeyVaultServiceHostSample.csproj", "{10FBF528-F77C-4041-A500-3BA89F70C3A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureKeyVaultSample", "Samples\AzureKeyVaultSample\AzureKeyVaultSample\AzureKeyVaultSample.csproj", "{A3A3F91B-AF69-4263-BA17-157D2EDFD712}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +33,22 @@ Global
 		{C113C11F-91F0-4E56-824F-70E37B3BC7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C113C11F-91F0-4E56-824F-70E37B3BC7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C113C11F-91F0-4E56-824F-70E37B3BC7AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10FBF528-F77C-4041-A500-3BA89F70C3A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10FBF528-F77C-4041-A500-3BA89F70C3A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10FBF528-F77C-4041-A500-3BA89F70C3A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10FBF528-F77C-4041-A500-3BA89F70C3A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3A3F91B-AF69-4263-BA17-157D2EDFD712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3A3F91B-AF69-4263-BA17-157D2EDFD712}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3A3F91B-AF69-4263-BA17-157D2EDFD712}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3A3F91B-AF69-4263-BA17-157D2EDFD712}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C113C11F-91F0-4E56-824F-70E37B3BC7AB} = {39D00364-9510-457A-98CC-B56515E0E74D}
+		{10FBF528-F77C-4041-A500-3BA89F70C3A1} = {39D00364-9510-457A-98CC-B56515E0E74D}
+		{A3A3F91B-AF69-4263-BA17-157D2EDFD712} = {39D00364-9510-457A-98CC-B56515E0E74D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6FF640B0-E19A-47BD-9665-29134900FF60}

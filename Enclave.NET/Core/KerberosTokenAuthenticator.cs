@@ -1,6 +1,5 @@
 ﻿using Kerberos.NET;
 using Kerberos.NET.Crypto;
-using Microsoft.Extensions.Caching.Distributed;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -10,12 +9,10 @@ namespace Enclave.NET.Core
     public class KerberosTokenAuthenticator : ITokenAuthenticator
     {
         private readonly IKeyStorageService storage;
-        private readonly IDistributedCache cache;
 
-        public KerberosTokenAuthenticator(IKeyStorageService storage, IDistributedCache cache)
+        public KerberosTokenAuthenticator(IKeyStorageService storage)
         {
             this.storage = storage;
-            this.cache = cache;
         }
 
         public IEnumerable<string> Schemes => new[] { "negotiate", "kerberos" };
@@ -29,8 +26,7 @@ namespace Enclave.NET.Core
             var validator = new KerberosValidator(
                 new KeyTable(
                     new KerberosKey(kerbKey)
-                ), 
-                cache: cache
+                )
             );
 
             var authenticator = new KerberosAuthenticator(validator);
